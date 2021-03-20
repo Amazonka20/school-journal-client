@@ -26,7 +26,7 @@
 }
 
 .btn:hover {
-    border: 1px solid #1c59c7;
+    border: 2px solid #337905;
 }
 
 .btn:disabled {
@@ -36,10 +36,19 @@
 
 .loginForm {
     width: 500px;
-    margin: 155px auto;
+    margin: 85px auto;
 }
 
 .invalid {
     border: 1px solid #680000;
     padding: 5px;
+}
+
+.logout {
+    display: flex;
+    justify-content: end;
+}
+
+.logout button {
+    padding: 3px;
 }

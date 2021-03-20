@@ -4,6 +4,7 @@ import classes from '../containers/UI/style.module.css'
 import Input from '../containers/UI/Input';
 import {NavLink} from "react-router-dom";
 import Button from "../containers/UI/Button";
+import {loginRequest} from "../serviceRequest/request";
 
 const Login = (props) => {
     const [loginForm, setLoginForm] = useState({
@@ -37,9 +38,14 @@ const Login = (props) => {
         event.preventDefault();
         let error = validateForm(loginForm);
 
+        let data = {
+            login: loginForm.login.value,
+            password: loginForm.password.value,
+        }
         if (error) {
             setValidationMessage(error);
         } else {
+            loginRequest(data, setValidationMessage);
            console.log("Request")
         }
     }

@@ -5,9 +5,10 @@ import Objects from "./Journal/Objects";
 import Login from "./Login/Login";
 import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import Register from "./Login/Register";
+import Logout from "./Login/Logout";
 
-function App() {
-    const isAuth = false;
+function App(props) {
+
 
     let routes = (
         <Switch>
@@ -17,9 +18,10 @@ function App() {
         </Switch>
     );
 
-    if (isAuth) {
+    if (props.isAuth) {
         routes = (
             <Switch>
+                <Route to="/logout" component={Logout}/>
                 <Route to="/" component={Objects}/>
             </Switch>
         );
