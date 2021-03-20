@@ -1,0 +1,45 @@
+.inputField {
+    width: 90%;
+    margin: auto;
+    padding: 6px 24px 6px 8px;
+    outline: none;
+    border: solid 1px #053180;
+}
+
+.inputContainer {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.btn {
+    color: #053180;
+    text-decoration: none;
+    padding: 11px;
+    cursor: pointer;
+    border: 2px solid #053180;
+    opacity: 0.9;
+    width: 150px;
+    outline: none;
+    margin: 0.5em;
+}
+
+.btn:hover {
+    border: 1px solid #1c59c7;
+}
+
+.btn:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.loginForm {
+    width: 500px;
+    margin: 155px auto;
+}
+
+.invalid {
+    border: 1px solid #680000;
+    padding: 5px;
+}
