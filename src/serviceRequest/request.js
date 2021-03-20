@@ -1,12 +1,12 @@
 import axios from "../utility/axios-utility";
 
-export const registerRequest = (data, successFunc, errorFunc) => {
+export const registerRequest = (data, func) => {
     axios.post("/teachers/register", data)
         .then(response => {
-            successFunc("New user was successfully register");
+            func("New user was successfully register");
         }
     ).catch(error => {
         console.log(error);
-        errorFunc("Error occurred during user creation: " + error);
+        func("Error occurred during user creation: " + error);
     });
 }

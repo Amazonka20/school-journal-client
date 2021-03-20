@@ -78,7 +78,6 @@ const Register = (props) => {
     });
 
     const [validationMessage, setValidationMessage] = useState(null);
-    const [succesMessage, setSuccesMessage] = useState(null);
 
     const onSubmitHandler = (event) => {
         event.preventDefault();
@@ -94,8 +93,7 @@ const Register = (props) => {
         if (error) {
             setValidationMessage(error);
         } else {
-            registerRequest(data, setSuccesMessage, setValidationMessage);
-            console.log("Request");
+            registerRequest(data, setValidationMessage);
         }
     }
 
@@ -139,7 +137,6 @@ const Register = (props) => {
         <React.Fragment>
             <form className={classes.loginForm} onSubmit={onSubmitHandler}>
                 <legend>Register</legend>
-                {succesMessage}
                 {errorMessage}
                 {inputs}
                 <div>
