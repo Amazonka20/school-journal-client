@@ -3,7 +3,7 @@ import classes from "./style.module.css";
 
 const Button = (props) => {
     return (
-        <button className={classes.btn} disabled={props.disabled}>{props.children}</button>
+        <button className={classes.btn} disabled={props.disabled} onClick={props.click}>{props.children}</button>
     );
 };
 

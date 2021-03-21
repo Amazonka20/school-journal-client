@@ -28,8 +28,8 @@ function App(props) {
     if (props.isAuth) {
         routes = (
             <Switch>
+                <Route path="/logout" component={Logout}/>
                 <Route to="/journal" component={Journal}/>
-                <Route to="/logout" component={Logout}/>
                 <Redirect to="/"/>
             </Switch>
         );

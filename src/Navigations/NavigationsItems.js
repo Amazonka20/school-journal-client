@@ -6,7 +6,7 @@ import {NavLink} from "react-router-dom";
 const NavigationsItems = (props) => {
     return (
         <React.Fragment>
-            {props.isAuth ? <NavLink to="/logout" className={classes.logout}><Button>Logout</Button></NavLink> : null}
+            {props.isAuth ? <NavLink to="/logout"  className={classes.logout}><Button>Logout</Button></NavLink> : null}
         </React.Fragment>
 );
 };
