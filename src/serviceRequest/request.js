@@ -11,14 +11,15 @@ export const registerRequest = (data, func) => {
     });
 }
 
-export const loginRequest = (data, func, setToken) => {
-    axios.post("/login", data)
-        .then(response => {
-                func("Success");
-                setToken(response.statusText);
-            }
-        ).catch(error => {
-        console.log(error);
-        func("Error occurred during login: " + error);
-    });
-}
+// export const loginRequest = (data, func, setToken) => {
+//     axios.post("/login", data)
+//         .then(response => {
+//                 func("Success");
+//                 sessionStorage.setItem('token', JSON.stringify(response.statusText));
+//                 setToken(response.statusText);
+//             }
+//         ).catch(error => {
+//         console.log(error);
+//         func("Error occurred during login: " + error);
+//     });
+// }

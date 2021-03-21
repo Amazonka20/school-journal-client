@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import {validateForm} from '../utility/utility';
 import classes from '../containers/UI/style.module.css'
 import Input from '../containers/UI/Input';
-import {NavLink, useHistory} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import Button from "../containers/UI/Button";
-import {loginRequest} from "../serviceRequest/request";
+import {connect} from 'react-redux';
+import {login} from "../store/action";
 
 const Login = (props) => {
     const [loginForm, setLoginForm] = useState({
@@ -33,21 +34,15 @@ const Login = (props) => {
     });
 
     const [validationMessage, setValidationMessage] = useState(null);
-    let history = useHistory();
 
     const onSubmitHandler = (event) => {
         event.preventDefault();
         let error = validateForm(loginForm);
 
-        let data = {
-            login: loginForm.login.value,
-            password: loginForm.password.value,
-        }
-
         if (error) {
             setValidationMessage(error);
         } else {
-            loginRequest(data, setValidationMessage, props.setToken);
+            props.onAuth(loginForm.login.value, loginForm.password.value);
         }
     }
 
@@ -106,4 +101,16 @@ const Login = (props) => {
     );
 };
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        error: state.login.error,
+        token: state.login.token,
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth: (email, pass, errorHandler) => dispatch(login(email, pass, errorHandler)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
