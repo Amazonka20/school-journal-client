@@ -52,3 +52,23 @@
 .logout button {
     padding: 3px;
 }
+
+.nav {
+    display: flex;
+    padding: 70px 0 0 35px;
+    flex-direction: column;
+    width: 150px;
+    justify-content: center
+}
+
+.nav a {
+    font-size: 1.2em;
+    text-decoration: none;
+    font-family: sans-serif;
+    padding: 10px;
+    color: #47011c;
+}
+
+.nav a:hover {
+    color: #035857;
+}

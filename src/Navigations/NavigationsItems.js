@@ -1,12 +1,15 @@
 import React from 'react';
 import classes from '../containers/UI/style.module.css';
-import Button from "../containers/UI/Button";
 import {NavLink} from "react-router-dom";
 
 const NavigationsItems = (props) => {
     return (
         <React.Fragment>
-            {props.isAuth ? <NavLink to="/logout"  className={classes.logout}><Button>Logout</Button></NavLink> : null}
+            <div className={classes.nav}>
+            {props.isAuth ? <NavLink to="/logout"  className={classes.logout}>Logout</NavLink> : null}
+            {props.isAuth ? <NavLink to="/students"  className={classes.logout}>Students</NavLink> : null}
+            {props.isAuth ? <NavLink to="/journal"  className={classes.logout}>Journal</NavLink> : null}
+            </div>
         </React.Fragment>
 );
 };
