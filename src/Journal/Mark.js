@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import classes from '../containers/UI/style.module.css';
-import {initGroups, onSelectGroup} from "../serviceRequest/clientService";
+import {initGroups, onSelectGroup} from "../client/serviceClient";
 import * as useToken from "../utility/useToken";
 
 
@@ -30,9 +30,7 @@ const Mark = (props) => {
             <form className={classes.markForm}>
                 <legend>Group name</legend>
                 <div className="mui-select">
-                    <select onChange={event => {
-                        console.log(event)
-                    }}>
+                    <select onChange={event => {onSelectGroup()}}>
                         {groupListView}
                     </select>
                 </div>

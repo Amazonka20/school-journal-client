@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import classes from '../containers/UI/style.module.css';
 import Card from "../containers/UI/Card";
-import {initStudents} from '../serviceRequest/clientService';
+import {initStudents} from '../client/serviceClient';
 
 const Students = (props) => {
 
@@ -10,7 +10,7 @@ const Students = (props) => {
     useEffect(() => {
         initStudents(setStudentsForm);
     }, [])
-    
+
     let journalList = (
         studentsForm.map(element => (
             <Card

@@ -48,7 +48,7 @@ export const initGroups = (successesFunc, headers, errorFunc) => {
         });
 }
 
-export const onSelectGroup = (event, groupId, successesFunc, headers) => {
+export const onSelectGroup = (groupId, successesFunc, headers) => {
     axios.get("/students?groupId=" + groupId, headers)
         .then(response => {
             successesFunc(response.data)

@@ -4,7 +4,7 @@ import classes from '../containers/UI/style.module.css'
 import Input from '../containers/UI/Input';
 import {NavLink} from "react-router-dom";
 import Button from "../containers/UI/Button";
-import {registerRequest} from "../serviceRequest/clientService";
+import {registerRequest} from "../client/serviceClient";
 
 const Register = (props) => {
     const [registerForm, setRegisterForm] = useState({
