@@ -1,28 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Layout from "./containers/Layout/Layout";
-import Objects from "./Journal/Objects";
+import Journal from "./Journal/Journal";
 import Login from "./Login/Login";
 import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import Register from "./Login/Register";
 import Logout from "./Login/Logout";
+import useToken from './utility/useToken';
+
 
 function App(props) {
+
+    const [token, setToken] = useState('');
 
 
     let routes = (
         <Switch>
             <Route path="/register" component={Register}/>
-            <Route path="/" component={Login}/>
-            <Redirect to="/"/>
+            <Route to="/" render={() => <Login setToken={setToken}/>}/>
         </Switch>
     );
 
-    if (props.isAuth) {
+    if (token) {
         routes = (
             <Switch>
+                <Route to="/journal" component={Journal}/>
                 <Route to="/logout" component={Logout}/>
-                <Route to="/" component={Objects}/>
+                <Redirect to="/"/>
             </Switch>
         );
     }

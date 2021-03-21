@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {validateForm} from '../utility/utility';
 import classes from '../containers/UI/style.module.css'
 import Input from '../containers/UI/Input';
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import Button from "../containers/UI/Button";
 import {loginRequest} from "../serviceRequest/request";
 
@@ -33,6 +33,7 @@ const Login = (props) => {
     });
 
     const [validationMessage, setValidationMessage] = useState(null);
+    let history = useHistory();
 
     const onSubmitHandler = (event) => {
         event.preventDefault();
@@ -42,11 +43,11 @@ const Login = (props) => {
             login: loginForm.login.value,
             password: loginForm.password.value,
         }
+
         if (error) {
             setValidationMessage(error);
         } else {
-            loginRequest(data, setValidationMessage);
-           console.log("Request")
+            loginRequest(data, setValidationMessage, props.setToken);
         }
     }
 

@@ -141,7 +141,7 @@ const Register = (props) => {
                 {inputs}
                 <div>
                     <Button type="submit">Register</Button>
-                    <NavLink to="/login">
+                    <NavLink to="/">
                         <Button>Cancel</Button>
                     </NavLink>
                 </div>
