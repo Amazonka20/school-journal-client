@@ -30,13 +30,14 @@ const Journal = (props) => {
                     group={element.group}
                     subject={element.subject}
                     mark={element.mark}
-                    date={element.date}
+                    date={element.date.substring(0, 10)}
                 />
             ))
     );
 
     return (
         <React.Fragment>
+            <h1>Journal</h1>
             <div className={classes.cardBox}>
                 <Card
                     student="Student"

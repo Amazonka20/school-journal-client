@@ -94,8 +94,11 @@
 .cardBox {
     margin-left: 23%;
     margin-top: 5%;
-    border: solid 1px #cccccc;
     padding: 10px;
+}
+
+.card:first-child {
+    font-weight: bold;
 }
 
 .card {
@@ -105,6 +108,7 @@
 .card  span{
     padding: 4px;
     border-right: solid 1px #cccccc;
-    width: 100px;
+    width: 130px;
     display: inline-block;
 }
+
