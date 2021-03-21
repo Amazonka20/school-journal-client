@@ -5,6 +5,7 @@ import Journal from "./Journal/Journal";
 import Login from "./Login/Login";
 import Welcome from "./Journal/Welcome";
 import Students from './Journal/Students';
+import Mark from './Journal/Mark';
 import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import Register from "./Login/Register";
 import Logout from "./Login/Logout";
@@ -33,6 +34,7 @@ function App(props) {
                 <Route path="/logout" component={Logout}/>
                 <Route path="/journal" component={Journal}/>
                 <Route path="/students" component={Students}/>
+                <Route path="/mark" component={Mark}/>
                 <Route path="/" component={Welcome}/>
                 <Redirect to="/"/>
             </Switch>

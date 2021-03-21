@@ -1,27 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import classes from '../containers/UI/style.module.css';
 import Card from "../containers/UI/Card";
-import axios from "../utility/axios-utility";
+import {initStudents} from '../serviceRequest/clientService';
 
 const Students = (props) => {
 
     const [studentsForm, setStudentsForm] = useState([]);
 
     useEffect(() => {
-        initStudents();
+        initStudents(setStudentsForm);
     }, [])
-
-    const initStudents = () => {
-        axios.get("/students")
-            .then(response => {
-                setStudentsForm(response.data)
-                console.log(response);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
-
+    
     let journalList = (
         studentsForm.map(element => (
             <Card

@@ -14,6 +14,7 @@ const NavigationsItems = (props) => {
                 <NavLink to="/logout" className={classes.logout}>Logout</NavLink>
                 <NavLink to="/journal" activeStyle={activeStyle}>Journal</NavLink>
                 <NavLink to="/students" activeStyle={activeStyle}>Students</NavLink>
+                <NavLink to="/mark" activeStyle={activeStyle}>Add mark to journal</NavLink>
             </div>}
 
         </React.Fragment>

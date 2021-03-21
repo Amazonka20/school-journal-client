@@ -32,8 +32,8 @@ export const login = (email, password, errorHandler) => {
 
         axios.post("/login", data)
             .then(response => {
-                    dispatch(authSuccess(response.statusText));
-                    useToken.setToken(response.statusText);
+                    dispatch(authSuccess(response.data.token));
+                    useToken.setToken(response.data.token);
                 }
             ).catch(error => {
             console.log(error);

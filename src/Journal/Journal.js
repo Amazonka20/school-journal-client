@@ -1,26 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import classes from '../containers/UI/style.module.css';
 import Card from "../containers/UI/Card";
-import axios from "../utility/axios-utility";
+import {initJournal} from "../serviceRequest/clientService";
 
 const Journal = (props) => {
 
     const [journalFrom, setJournalForm] = useState([]);
 
     useEffect(() => {
-        initJournal();
+        initJournal(setJournalForm);
     }, [])
-
-    const initJournal = () => {
-        axios.get("/journal")
-            .then(response => {
-                setJournalForm(response.data)
-                console.log(response);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
 
     let journalList = (
             journalFrom.map(element => (
