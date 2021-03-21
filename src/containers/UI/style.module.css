@@ -1,7 +1,7 @@
 .inputField {
     width: 90%;
     margin: auto;
-    padding: 6px 24px 6px 8px;
+    padding: 14px;
     outline: none;
     border: solid 1px #053180;
 }
@@ -39,36 +39,72 @@
     margin: 85px auto;
 }
 
+.loginForm legend{
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    margin: 20px;
+    font-size: 1.3em;
+}
+
 .invalid {
     border: 1px solid #680000;
     padding: 5px;
 }
 
-.logout {
-    display: flex;
-    justify-content: end;
+.sidebar {
+    background-color: #E57373;
+    padding: 15px;
 }
 
-.logout button {
-    padding: 3px;
+.sidebar div {
+    margin-bottom: 50px;
 }
 
-.nav {
-    display: flex;
-    padding: 70px 0 0 35px;
-    flex-direction: column;
-    width: 150px;
-    justify-content: center
-}
-
-.nav a {
+.sidebar a {
+    display: block;
     font-size: 1.2em;
     text-decoration: none;
     font-family: sans-serif;
     padding: 10px;
-    color: #47011c;
+    color: #fdfdfd;
 }
 
-.nav a:hover {
-    color: #035857;
+.logout {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sidebar a:hover {
+    color: #100f0f;
+    text-decoration: #cccccc;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 180px;
+        height: 100%;
+        padding-top: 30px;
+    }
+}
+
+.cardBox {
+    margin-left: 23%;
+    margin-top: 5%;
+    border: solid 1px #cccccc;
+    padding: 10px;
+}
+
+.card {
+    text-align: left;
+}
+
+.card  span{
+    padding: 4px;
+    border-right: solid 1px #cccccc;
+    width: 100px;
+    display: inline-block;
 }
