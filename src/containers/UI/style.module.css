@@ -112,3 +112,19 @@
     display: inline-block;
 }
 
+.mark {
+    width: 200px;
+    font-weight: bold;
+    margin: 20px auto;
+}
+
+.markForm legend {
+    text-align: center;
+    font-weight: normal;
+}
+
+.markForm {
+    display: block;
+    width: 550px;
+    margin: auto;
+}
