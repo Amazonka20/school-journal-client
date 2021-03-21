@@ -1,9 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import classes from '../containers/UI/style.module.css';
 import Card from "../containers/UI/Card";
 import axios from "../utility/axios-utility";
 
 const Journal = (props) => {
+
+    const [journalFrom, setJournalForm] = useState([]);
 
     useEffect(() => {
         initJournal();
@@ -12,12 +14,26 @@ const Journal = (props) => {
     const initJournal = () => {
         axios.get("/journal")
             .then(response => {
+                setJournalForm(response.data)
                 console.log(response);
             })
             .catch(error => {
                 console.log(error);
             });
     }
+
+    let journalList = (
+            journalFrom.map(element => (
+                <Card
+                    key={element.student}
+                    student={element.student}
+                    group={element.group}
+                    subject={element.subject}
+                    mark={element.mark}
+                    date={element.date}
+                />
+            ))
+    );
 
     return (
         <React.Fragment>
@@ -29,20 +45,7 @@ const Journal = (props) => {
                     mark="Mark"
                     date="Date"
                 />
-                <Card
-                    student="Ivan Ivanov"
-                    group="1A"
-                    subject="Math"
-                    mark="10"
-                    date="21.03.2021"
-                />
-                <Card
-                    student="Sveta Ivanova"
-                    group="2A"
-                    subject="Math"
-                    mark="5"
-                    date="21.03.2021"
-                />
+                {journalList}
             </div>
         </React.Fragment>
     );
