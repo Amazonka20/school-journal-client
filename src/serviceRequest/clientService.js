@@ -5,10 +5,11 @@ export const registerRequest = (data, func) => {
         .then(response => {
                 func("New user was successfully registered");
             }
-        ).catch(error => {
-        console.log(error);
-        func("Error occurred during user creation: " + error);
-    });
+        )
+        .catch(error => {
+            console.log(error);
+            func("Error occurred during user creation: " + error);
+        });
 }
 
 

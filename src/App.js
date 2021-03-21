@@ -29,7 +29,7 @@ function App(props) {
         routes = (
             <Switch>
                 <Route path="/logout" component={Logout}/>
-                <Route to="/journal" component={Journal}/>
+                <Route path="/journal" component={Journal}/>
                 <Redirect to="/"/>
             </Switch>
         );
