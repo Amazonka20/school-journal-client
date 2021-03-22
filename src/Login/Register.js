@@ -86,6 +86,7 @@ const Register = (props) => {
             first_name: registerForm.firstName.value,
             last_name: registerForm.secondName.value,
             login: registerForm.login.value,
+            position: registerForm.position.value,
             password: registerForm.password.value,
         }
 

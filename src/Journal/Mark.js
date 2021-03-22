@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import classes from '../containers/UI/style.module.css';
 import Input from '@material-ui/core/Input';
 import {getGroups, getStudents, getSubjects} from "../client/serviceClient";
@@ -11,6 +11,7 @@ const Mark = (props) => {
     const [studentList, setStudentList] = useState([]);
     const [subjectsList, setSubjectsList] = useState([]);
     const [mark, setMark] = useState('');
+    const [validationMessage, setValidationMessage] = useState('');
 
     const subjectId = useRef(null);
     const studentId = useRef(null);
@@ -51,9 +52,14 @@ const Mark = (props) => {
             student_id: studentId.current.value,
             mark: markNumber.current.value,
         }
+
+        if (!data.mark || !data.subject_id || !data.student_id) {
+            setValidationMessage("All fields are mandatory");
+            return;
+        }
+
         axios.post("/journal", data, headers)
             .then(response => {
-                    console.log(response)
                 }
             )
             .catch(error => {
@@ -64,24 +70,26 @@ const Mark = (props) => {
     return (
         <React.Fragment>
             <h1>Add mark</h1>
+            <h3 style={{color: 'red'}}>{validationMessage}</h3>
             <form className={classes.markForm} onSubmit={(event) => onSubmitHandler(event)}>
                 <legend>Group name</legend>
                 <div className="mui-select">
                     <select onChange={event => {
                         getStudents(event.target.value, setStudentList, headers)
                     }}>
+                        <option value=""></option>
                         {groupListView}
                     </select>
                 </div>
                 <legend>Student name</legend>
                 <div className="mui-select">
-                    <select ref={studentId} onChange={event => console.log(event.target.value)}>
+                    <select ref={studentId}>
                         {studentListView}
                     </select>
                 </div>
                 <legend>Subjects</legend>
                 <div className="mui-select">
-                    <select ref={subjectId} onChange={event => onSubmitHandler(event)}>
+                    <select ref={subjectId}>
                         {subjectsListView}
                     </select>
                 </div>
