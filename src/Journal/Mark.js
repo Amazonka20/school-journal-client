@@ -58,7 +58,7 @@ const Mark = (props) => {
             return;
         }
 
-        if (!Number.isInteger(data.mark) || data.mark < 1 || data.mark > 10) {
+        if (!Number.isInteger(Number.parseInt(data.mark)) || data.mark < 1 || data.mark > 10) {
             setValidationMessage("Mark value must be a number from 1 to 10");
             return;
         }
