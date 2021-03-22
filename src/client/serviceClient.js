@@ -13,7 +13,7 @@ export const registerTeacher = (data, func) => {
         });
 }
 
-export const getJournal = (successesFunc, headers, errorFunc) => {
+export const getJournal = (successesFunc, headers) => {
     axios.get("/journal", headers)
         .then(response => {
             successesFunc(response.data)

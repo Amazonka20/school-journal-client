@@ -129,3 +129,7 @@
     margin: auto;
 }
 
+.input > div {
+    display: block !important;
+    margin-bottom: 35px !important;
+}

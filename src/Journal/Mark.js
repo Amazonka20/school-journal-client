@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 import classes from '../containers/UI/style.module.css';
+import Input from '@material-ui/core/Input';
 import {getGroups, getStudents, getSubjects} from "../client/serviceClient";
 import * as useToken from "../utility/useToken";
 import axios from "../utility/axios-utility";
@@ -85,8 +86,8 @@ const Mark = (props) => {
                     </select>
                 </div>
                 <legend>Mark</legend>
-                <div>
-                    <input ref={markNumber} value={mark} onChange={(event) => {
+                <div className={classes.input}>
+                    <Input className="MuiInput-input" ref={markNumber} value={mark} onChange={(event) => {
                         setMark(event.target.value)
                     }}/>
                 </div>
