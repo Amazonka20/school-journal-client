@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import classes from '../containers/UI/style.module.css';
+import {useHistory} from 'react-router-dom';
 import Input from '@material-ui/core/Input';
 import {getGroups, getStudents, getSubjects} from "../client/serviceClient";
 import * as useToken from "../utility/useToken";
@@ -16,6 +17,8 @@ const Mark = (props) => {
     const subjectId = useRef(null);
     const studentId = useRef(null);
     const markNumber = useRef(null);
+
+    const history = useHistory();
 
     const headers = {
         headers: {'Authorization': "Bearer " + useToken.getToken()},
@@ -65,6 +68,7 @@ const Mark = (props) => {
 
         axios.post("/journal", data, headers)
             .then(response => {
+                    history.push("/journal");
                 }
             )
             .catch(error => {
