@@ -58,6 +58,11 @@ const Mark = (props) => {
             return;
         }
 
+        if (!Number.isInteger(data.mark) || data.mark < 1 || data.mark > 10) {
+            setValidationMessage("Mark value must be a number from 1 to 10");
+            return;
+        }
+
         axios.post("/journal", data, headers)
             .then(response => {
                 }
@@ -95,7 +100,7 @@ const Mark = (props) => {
                 </div>
                 <legend>Mark</legend>
                 <div className={classes.input}>
-                    <Input className="MuiInput-input" ref={markNumber} value={mark} onChange={(event) => {
+                    <input className="MuiInput-input" ref={markNumber} value={mark} onChange={(event) => {
                         setMark(event.target.value)
                     }}/>
                 </div>

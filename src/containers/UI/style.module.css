@@ -39,7 +39,7 @@
     margin: 85px auto;
 }
 
-.loginForm legend{
+.loginForm legend {
     text-align: center;
     font-weight: bold;
     display: block;
@@ -105,7 +105,7 @@
     text-align: left;
 }
 
-.card  span{
+.card span {
     padding: 4px;
     border-right: solid 1px #cccccc;
     width: 130px;
@@ -134,4 +134,18 @@
 .input > div {
     display: block !important;
     margin-bottom: 35px !important;
+}
+
+.input > input {
+    width: 100%;
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 1px solid grey;
+    border-right: 0;
+    padding: 10px 0 5px 0;
+    margin: 10px 0 30px 0;
+}
+
+.input > input:focus {
+    outline: none;
 }
