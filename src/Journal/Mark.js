@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import classes from '../containers/UI/style.module.css';
 import {initGroups, onSelectGroup, getSubjectsList} from "../client/serviceClient";
 import * as useToken from "../utility/useToken";
+import axios from "../utility/axios-utility";
 
 
 const Mark = (props) => {
@@ -9,6 +10,10 @@ const Mark = (props) => {
     const [studentList, setStudentList] = useState([]);
     const [subjectsList, setSubjectsList] = useState([]);
     const [mark, setMark] = useState('');
+
+    const subjectId = useRef(null);
+    const studentId = useRef(null);
+    const markNumber = useRef(null);
 
     const headers = {
         headers: {'Authorization': "Bearer " + useToken.getToken()},
@@ -40,7 +45,19 @@ const Mark = (props) => {
 
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        console.log(event.target.value);
+        const data = {
+            subject_id: subjectId.current.value,
+            student_id: studentId.current.value,
+            mark: markNumber.current.value,
+        }
+        axios.post("/journal", data, headers)
+            .then(response => {
+                    console.log(response)
+                }
+            )
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     return (
@@ -57,19 +74,19 @@ const Mark = (props) => {
                 </div>
                 <legend>Student name</legend>
                 <div className="mui-select">
-                    <select name="student_id" onChange={event => console.log(event.target.value)}>
+                    <select ref={studentId} onChange={event => console.log(event.target.value)}>
                         {studentListView}
                     </select>
                 </div>
                 <legend>Subjects</legend>
                 <div className="mui-select">
-                    <select name="subject_id" onChange={event => onSubmitHandler(event)}>
+                    <select ref={subjectId} onChange={event => onSubmitHandler(event)}>
                         {subjectsListView}
                     </select>
                 </div>
                 <legend>Mark</legend>
                 <div>
-                    <input name="mark" value={mark} onChange={(event) => {
+                    <input ref={markNumber} value={mark} onChange={(event) => {
                         setMark(event.target.value)
                     }}/>
                 </div>
