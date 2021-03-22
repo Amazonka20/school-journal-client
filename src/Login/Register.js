@@ -86,7 +86,6 @@ const Register = (props) => {
             first_name: registerForm.firstName.value,
             last_name: registerForm.secondName.value,
             login: registerForm.login.value,
-            position: registerForm.position.value,
             password: registerForm.password.value,
         }
 
@@ -136,7 +135,7 @@ const Register = (props) => {
     return (
         <React.Fragment>
             <form className={classes.loginForm} onSubmit={onSubmitHandler}>
-                <legend>Register</legend>
+                <legend>Teacher registration</legend>
                 {errorMessage}
                 {inputs}
                 <div>

@@ -18,7 +18,7 @@ const Students = (props) => {
                 student={element.first_name}
                 lastName={element.last_name}
                 birth_year={element.birth_year}
-                group={element.group_id}
+                group={element.group_name}
             />
         ))
     );
