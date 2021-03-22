@@ -1,6 +1,6 @@
 import axios from "../utility/axios-utility";
 import * as useToken from '../utility/useToken';
-import * as actionsType from './ActionTypes';
+import * as actionsType from './actionTypes';
 
 export const logout = () => {
     useToken.clearStorage();

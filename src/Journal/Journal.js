@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import classes from '../containers/UI/style.module.css';
 import Card from "../containers/UI/Card";
-import {initJournal} from "../client/serviceClient";
+import {getJournal} from "../client/serviceClient";
 import {NavLink} from "react-router-dom";
 import * as useToken from "../utility/useToken";
 
@@ -14,7 +14,7 @@ const Journal = (props) => {
     };
 
     useEffect(() => {
-        initJournal(setJournalForm, headers);
+        getJournal(setJournalForm, headers);
     }, [])
 
     let journalList = (

@@ -4,7 +4,7 @@ import classes from '../containers/UI/style.module.css'
 import Input from '../containers/UI/Input';
 import {NavLink} from "react-router-dom";
 import Button from "../containers/UI/Button";
-import {registerRequest} from "../client/serviceClient";
+import {registerTeacher} from "../client/serviceClient";
 
 const Register = (props) => {
     const [registerForm, setRegisterForm] = useState({
@@ -92,7 +92,7 @@ const Register = (props) => {
         if (error) {
             setValidationMessage(error);
         } else {
-            registerRequest(data, setValidationMessage);
+            registerTeacher(data, setValidationMessage);
         }
     }
 

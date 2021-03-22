@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 import classes from '../containers/UI/style.module.css';
-import {initGroups, onSelectGroup, getSubjectsList} from "../client/serviceClient";
+import {getGroups, getStudents, getSubjects} from "../client/serviceClient";
 import * as useToken from "../utility/useToken";
 import axios from "../utility/axios-utility";
 
@@ -20,8 +20,8 @@ const Mark = (props) => {
     };
 
     useEffect(() => {
-        initGroups(setGroupsList, headers);
-        getSubjectsList(setSubjectsList, headers);
+        getGroups(setGroupsList, headers);
+        getSubjects(setSubjectsList, headers);
     }, []);
 
 
@@ -67,7 +67,7 @@ const Mark = (props) => {
                 <legend>Group name</legend>
                 <div className="mui-select">
                     <select onChange={event => {
-                        onSelectGroup(event.target.value, setStudentList, headers)
+                        getStudents(event.target.value, setStudentList, headers)
                     }}>
                         {groupListView}
                     </select>

@@ -1,7 +1,7 @@
 import axios from "../utility/axios-utility";
 
 
-export const registerRequest = (data, func) => {
+export const registerTeacher = (data, func) => {
     axios.post("/register", data)
         .then(response => {
                 func("New user was successfully registered");
@@ -13,7 +13,7 @@ export const registerRequest = (data, func) => {
         });
 }
 
-export const initJournal = (successesFunc, headers, errorFunc) => {
+export const getJournal = (successesFunc, headers, errorFunc) => {
     axios.get("/journal", headers)
         .then(response => {
             successesFunc(response.data)
@@ -23,7 +23,7 @@ export const initJournal = (successesFunc, headers, errorFunc) => {
         });
 }
 
-export const initStudents = (successesFunc, headers, errorFunc) => {
+export const initStudents = (successesFunc, headers) => {
     axios.get("/students", headers)
         .then(response => {
             successesFunc(response.data)
@@ -33,7 +33,7 @@ export const initStudents = (successesFunc, headers, errorFunc) => {
         });
 }
 
-export const initGroups = (successesFunc, headers, errorFunc) => {
+export const getGroups = (successesFunc, headers, errorFunc) => {
     axios.get("/groups", headers)
         .then(response => {
             successesFunc(response.data)
@@ -43,7 +43,7 @@ export const initGroups = (successesFunc, headers, errorFunc) => {
         });
 }
 
-export const onSelectGroup = (groupId, successesFunc, headers) => {
+export const getStudents = (groupId, successesFunc, headers) => {
     axios.get("/students?groupId=" + groupId, headers)
         .then(response => {
             successesFunc(response.data)
@@ -53,7 +53,7 @@ export const onSelectGroup = (groupId, successesFunc, headers) => {
         });
 }
 
-export const getSubjectsList = (successesFunc, headers) => {
+export const getSubjects = (successesFunc, headers) => {
     axios.get("/subjects", headers)
         .then(response => {
             successesFunc(response.data)
