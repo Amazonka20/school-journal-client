@@ -92,9 +92,11 @@
 }
 
 .cardBox {
-    margin-left: 23%;
     margin-top: 5%;
     padding: 10px;
+    content: unset;
+    align-content: center;
+    display: inline-block;;
 }
 
 .card:first-child {
@@ -110,8 +112,8 @@
 }
 
 .card span {
-    padding: 4px;
-    border-right: solid 1px #cccccc;
+    padding: 5px 24px 1px 10px;
+    border: 1px solid #ccc;
     width: 130px;
     display: inline-block;
 }
