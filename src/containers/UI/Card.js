@@ -11,6 +11,8 @@ const Card = (props) => {
             {props.subject && <span>{props.subject}</span>}
             {props.mark && <span>{props.mark}</span>}
             {props.date &&  <span>{props.date}</span>}
+            {props.classroomNumber &&  <span>{props.classroomNumber}</span>}
+            {props.floor &&  <span>{props.floor}</span>}
         </div>
     );
 };

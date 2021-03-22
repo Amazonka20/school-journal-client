@@ -101,6 +101,10 @@
     font-weight: bold;
 }
 
+.mark + div {
+    font-weight: bold;
+}
+
 .card {
     text-align: left;
 }
@@ -113,9 +117,9 @@
 }
 
 .mark {
-    width: 200px;
+    width: 140px;
     font-weight: bold;
-    margin: 20px auto;
+    margin: 0 0 30px 0;
 }
 
 .markForm legend {

@@ -20,7 +20,7 @@ const Journal = (props) => {
     let journalList = (
         journalFrom.map(element => (
             <Card
-                key={element.id}
+                key={element.journal_id}
                 student={element.student}
                 group={element.group}
                 subject={element.subject}

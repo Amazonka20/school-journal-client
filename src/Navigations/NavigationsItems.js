@@ -13,6 +13,7 @@ const NavigationsItems = (props) => {
                 <div className="mui--text-white mui--text-display1 mui--align-vertical">School Journal</div>
                 <NavLink to="/logout" className={classes.logout}>Logout</NavLink>
                 <NavLink to="/journal" activeStyle={activeStyle}>Journal</NavLink>
+                <NavLink to="/subjects" activeStyle={activeStyle}>Subjects</NavLink>
                 <NavLink to="/students" activeStyle={activeStyle}>Students</NavLink>
             </div>}
 
